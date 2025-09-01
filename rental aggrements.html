@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rental Agreements & Leave & License - HALF CA</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9fafb;
+      padding-bottom: 1rem;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Compact Header Styles */
+    header {
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+      color: white;
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 50px;   /* adjust as needed */
+      height: auto;
+    }
+
+    .logo-main {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .logo-sub {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .contact-info {
+      display: flex;
+      gap: 1.2rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Content Section */
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+    
+    .intro p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .services {
+      margin-bottom: 2.5rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      color: #7c3aed;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-3px);
+    }
+    
+    .service-card h3 {
+      color: #7c3aed;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+    
+    .service-card p {
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+    
+    /* Process Section */
+    .process {
+      background: #f9f9ff;
+      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .process h2 {
+      text-align: center;
+      color: #7c3aed;
+      margin-bottom: 1.8rem;
+      font-size: 1.6rem;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .process-step {
+      background: #fff;
+      padding: 1.5rem 1.2rem 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+      padding-top: 3.5rem;
+    }
+
+    .process-step:hover {
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .process-step h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+
+    .process-step p {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    /* Pricing Section */
+    .pricing {
+      background: white;
+      border-radius: 8px;
+      padding: 1.8rem;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+    
+    .pricing h2 {
+      color: #7c3aed;
+      margin-bottom: 0.8rem;
+    }
+    
+    .price-tag {
+      font-size: 1.6rem;
+      color: #7c3aed;
+      font-weight: bold;
+      margin: 0.8rem 0;
+    }
+    
+    .pricing p {
+      font-size: 0.95rem;
+    }
+    
+    /* Documents Section */
+    .documents {
+      background: #f5f3ff;
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .documents h2 {
+      text-align: center;
+      color: #7c3aed;
+      margin-bottom: 1.2rem;
+    }
+    
+    .documents-list {
+      list-style: none;
+    }
+    
+    .documents-list li {
+      padding: 0.6rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+    
+    .documents-list li:before {
+      content: "•";
+      color: #7c3aed;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    /* Benefits Section */
+    .benefits {
+      background: #ede9fe;
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .benefits h2 {
+      text-align: center;
+      color: #7c3aed;
+      margin-bottom: 1.2rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    
+    .benefit {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .benefit-icon {
+      font-size: 2rem;
+      color: #7c3aed;
+      margin-bottom: 0.8rem;
+    }
+    
+    .benefit h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .benefit p {
+      font-size: 0.9rem;
+    }
+    
+    /* CTA Section */
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    
+    .cta h2 {
+      margin-bottom: 1.2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #7c3aed;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      background: #1e293b;
+      color: white;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.6rem;
+      }
+
+      .logo {
+        justify-content: center;
+      }
+
+      .contact-info {
+        flex-direction: row;   /* side by side instead of stacked */
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .contact-item {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.3rem 0.7rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        color: #fff;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      .services-grid,
+      .process-steps,
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-step {
+        padding-top: 3rem;
+      }
+
+      .step-number {
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Compact Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <!-- Added logo image -->
+        <img src="logo.png" alt="HALF CA Logo" class="logo-img">
+        <div class="logo-text">
+          <div class="logo-main">HALF CA</div>
+          <div class="logo-sub">Rental Agreement Services</div>
+        </div>
+      </div>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <span>📧 halfca33@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <span>📞 +91 8828048467</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Hassle-Free Rental Agreements</h2>
+      <p>Legal, registered rental agreements for all your property needs</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Introduction -->
+    <section class="intro">
+      <p>We provide comprehensive rental agreement and leave & license documentation services that are legally sound, properly registered, and customized to your specific requirements.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+      <h2 class="section-title">Our Agreement Services</h2>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Residential Rental Agreements</h3>
+          <p>Complete rental agreement solutions for residential properties including apartments, houses, and rooms.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Commercial Lease Agreements</h3>
+          <p>Professional lease documentation for commercial spaces, offices, shops, and industrial properties.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Leave & License Agreements</h3>
+          <p>Legally compliant leave and license agreements for properties in Maharashtra and other states.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Agreement Renewals</h3>
+          <p>Seamless renewal of existing rental agreements with updated terms and conditions.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Notarization & Registration</h3>
+          <p>End-to-end support for notarization and registration of agreements as per government requirements.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Agreement Modifications</h3>
+          <p>Assistance with modifying existing agreements to accommodate changing requirements.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+      <h2>Our Simple Process</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Document Collection</h3>
+          <p>We collect necessary documents from both parties digitally or in-person.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Draft Preparation</h3>
+          <p>Our legal experts prepare a customized draft based on your requirements.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Review & Approval</h3>
+          <p>Both parties review the draft and suggest changes if needed.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Registration</h3>
+          <p>We handle the entire registration process at the sub-registrar office.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section class="documents">
+      <h2>Documents Required</h2>
+      <ul class="documents-list">
+        <li>PAN Card of owner and tenant</li>
+        <li>Aadhaar Card of owner and tenant</li>
+        <li>Proof of ownership (Property papers)</li>
+        <li>Passport size photographs</li>
+        <li>Address proof of both parties</li>
+        <li>Previous rental agreement (if renewal)</li>
+      </ul>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+      <h2>Why Choose Our Services?</h2>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="benefit-icon">⚖️</div>
+          <h3>Legally Compliant</h3>
+          <p>All agreements drafted as per current rental laws</p>
+        </div>
+        
+        <div class="benefit">
+          <div class="benefit-icon">⏱️</div>
+          <h3>Time-Saving</h3>
+          <p>Quick and hassle-free process completion</p>
+        </div>
+        
+        <div class="benefit">
+          <div class="benefit-icon">🏠</div>
+          <h3>Expert Guidance</h3>
+          <p>Professional advice on terms and conditions</p>
+        </div>
+        
+        <div class="benefit">
+          <div class="benefit-icon">🔒</div>
+          <h3>Secure Process</h3>
+          <p>Your documents and information are safe with us</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <h2>Ready to Create Your Rental Agreement?</h2>
+      <p>Contact us today for professional rental agreement services</p>
+      <a href="mailto:halfca33@gmail.com" class="btn">Get Started Now</a>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 HALF CA Business Solutions | Rental Agreement Experts</p>
+    </div>
+  </footer>
+</body>
+</html>

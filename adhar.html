@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Download Services - HALF CA</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9fafb;
+      padding-bottom: 2rem;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Compact Header Styles */
+    header {
+      background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+      color: white;
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+   .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 50px;   /* adjust size as needed */
+  height: auto;
+}
+
+    
+    .logo-main {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .logo-sub {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .contact-info {
+      display: flex;
+      gap: 1.2rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+    
+    /* Hero Section - Added background image */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1586074299757-dc655f18518c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Content Section */
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+    
+    .intro p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .services {
+      margin-bottom: 2.5rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      color: #7c3aed;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-3px);
+    }
+    
+    .service-card h3 {
+      color: #7c3aed;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+    
+    .service-card p {
+      color: #4b5563;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      color: #7c3aed;
+      margin-bottom: 0.8rem;
+    }
+    
+    /* Steps Section */
+    .steps {
+      background: #faf5ff;
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .steps h2 {
+      text-align: center;
+      color: #7c3aed;
+      margin-bottom: 1.2rem;
+    }
+    
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      counter-reset: step-counter;
+    }
+    
+   /* Step Cards */
+.step {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.08);
+}
+
+/* Number Circle on TOP CENTER (same as screenshot) */
+/* Number Circle - smaller & attractive */
+.step-number {
+  position: absolute;
+  top: -16px;             /* adjusted to fit smaller circle */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;            /* smaller size */
+  height: 34px;
+  background: linear-gradient( #7c3aed);  /* gradient theme */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;       /* slightly smaller font */
+  border: 2px solid #fff; /* white border for clean look */
+  box-shadow: 0 3px 8px rgba(124, 58, 237, 0.3); /* soft glow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+    
+    /* Documents Required Section */
+    .documents {
+      background: white;
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .documents h2 {
+      text-align: center;
+      color: #7c3aed;
+      margin-bottom: 1.2rem;
+    }
+    
+    .documents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+    
+    .document-card {
+      background: #faf5ff;
+      padding: 1.2rem;
+      border-radius: 8px;
+    }
+    
+    .document-card h3 {
+      color: #7c3aed;
+      margin-bottom: 0.8rem;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    
+    .documents-list {
+      list-style: none;
+    }
+    
+    .documents-list li {
+      padding: 0.4rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    
+    .documents-list li:before {
+      content: "•";
+      color: #7c3aed;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    /* Benefits Section */
+    .benefits {
+      background: #faf5ff;
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .benefits h2 {
+      text-align: center;
+      color: #7c3aed;
+      margin-bottom: 1.2rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    
+    .benefit {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .benefit-icon {
+      font-size: 2rem;
+      color: #7c3aed;
+      margin-bottom: 0.8rem;
+    }
+    
+    .benefit h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .benefit p {
+      font-size: 0.9rem;
+    }
+    
+    /* Note Section */
+    .note {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      border-left: 4px solid #7c3aed;
+    }
+    
+    .note h2 {
+      color: #7c3aed;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+    
+    .note p {
+      font-size: 0.95rem;
+    }
+    
+    /* CTA Section */
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    
+    .cta h2 {
+      margin-bottom: 1.2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #7c3aed;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      background: #1e293b;
+      color: white;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .contact-info {
+    flex-direction: row;   /* side by side instead of stacked */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .contact-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #fff;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .services-grid,
+  .steps-grid,
+  .documents-grid,
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Compact Header -->
+  <!-- Compact Header -->
+<header>
+  <div class="container header-content">
+    <div class="logo">
+      <!-- Added logo image -->
+      <img src="logo.png" alt="HALF CA Logo" class="logo-img">
+      <div class="logo-text">
+        <div class="logo-main">HALF CA</div>
+        <div class="logo-sub">Free Document Download Services</div>
+      </div>
+    </div>
+    
+    <div class="contact-info">
+      <div class="contact-item">
+        <span>📧 halfca33@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <span>📞 91+ 8828048467</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Free Government Document Download Assistance</h2>
+      <p>We help you download your essential documents quickly and easily</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Introduction -->
+    <section class="intro">
+      <p>We provide completely free assistance in downloading your important government documents like Aadhaar Card, PAN Card, and Voter ID. Our experts will guide you through the entire process at no cost.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+      <h2 class="section-title">Our Free Download Services</h2>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📄</div>
+          <h3>Aadhaar Card Download</h3>
+          <p>Assistance in downloading your Aadhaar Card from the official UIDAI website</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">💳</div>
+          <h3>PAN Card Download</h3>
+          <p>Help with downloading your PAN Card copy from the NSDL or UTITSL portal</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🗳️</div>
+          <h3>Voter ID Download</h3>
+          <p>Assistance in downloading your Voter ID card from the National Voters' Portal</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps">
+      <h2>How Our Free Service Works</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Contact Us</h3>
+          <p>Reach out to us via phone, WhatsApp, or visit our office</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Document Guidance</h3>
+          <p>We'll explain what information and documents you need</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Assisted Download</h3>
+          <p>Our expert will help you through the download process</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Receive Your Document</h3>
+          <p>You'll get your downloaded document instantly</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents Required Section -->
+    <section class="documents">
+      <h2>What You'll Need</h2>
+      <div class="documents-grid">
+        <div class="document-card">
+          <h3>For Aadhaar Download</h3>
+          <ul class="documents-list">
+            <li>Aadhaar Number or Enrollment ID</li>
+            <li>Registered Mobile Number</li>
+            <li>Full Name as per Aadhaar</li>
+            <li>PIN Code of registered address</li>
+          </ul>
+        </div>
+        
+        <div class="document-card">
+          <h3>For PAN Download</h3>
+          <ul class="documents-list">
+            <li>PAN Number</li>
+            <li>Full Name as per PAN</li>
+            <li>Date of Birth</li>
+            <li>Registered Mobile Number</li>
+          </ul>
+        </div>
+        
+        <div class="document-card">
+          <h3>For Voter ID Download</h3>
+          <ul class="documents-list">
+            <li>Voter ID Number or EPIC Number</li>
+            <li>Full Name as per Voter ID</li>
+            <li>Date of Birth</li>
+            <li>State and Constituency</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+      <h2>Benefits of Our Service</h2>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="benefit-icon">💰</div>
+          <h3>Completely Free</h3>
+          <p>No hidden charges or fees for our assistance</p>
+        </div>
+        
+        <div class="benefit">
+          <div class="benefit-icon">⏱️</div>
+          <h3>Time-Saving</h3>
+          <p>Quick process that saves you time and effort</p>
+        </div>
+        
+        <div class="benefit">
+          <div class="benefit-icon">👨‍💼</div>
+          <h3>Expert Assistance</h3>
+          <p>Guidance from experienced professionals</p>
+        </div>
+        
+        <div class="benefit">
+          <div class="benefit-icon">🔒</div>
+          <h3>Secure Process</h3>
+          <p>Your personal information remains confidential</p>
+        </div>
+      </div>
+    </section>
+
+  
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 HALF CA Business Solutions | Free Document Download Assistance</p>
+    </div>
+  </footer>
+</body>
+</html>

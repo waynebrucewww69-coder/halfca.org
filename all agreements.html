@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Format Services - HALF CA</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9fafb;
+      padding-bottom: 2rem;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Compact Header Styles */
+    header {
+      background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+      color: white;
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      width: 50px;   /* adjust logo size */
+      height: auto;
+    }
+    
+    .logo-main {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .logo-sub {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    
+    .contact-info {
+      display: flex;
+      gap: 1.2rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Content Section */
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+    
+    .intro p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .services {
+      margin-bottom: 2.5rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      color: #0891b2;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-3px);
+    }
+    
+    .service-card h3 {
+      color: #0891b2;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+    
+    .service-card p {
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+    
+    /* Categories Section */
+    .categories {
+      margin-bottom: 2.5rem;
+    }
+    
+    .category {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .category h3 {
+      color: #0891b2;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e5e7eb;
+      font-size: 1.2rem;
+    }
+    
+    .category-list {
+      list-style: none;
+    }
+    
+    .category-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      font-size: 0.9rem;
+    }
+    
+    .category-list li:before {
+      content: "•";
+      color: #0891b2;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    /* Process Section */
+    .process {
+      background: #ecfeff;
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .process h2 {
+      text-align: center;
+      color: #0891b2;
+      margin-bottom: 1.5rem;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .process-step {
+      background: #fff;
+      padding: 1.8rem 1.5rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+      padding-top: 3.5rem;
+    }
+
+    .process-step:hover {
+      transform: translateY(-4px);
+    }
+
+    .step-number {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .process-step h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+      color: #0891b2;
+    }
+
+    .process-step p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+    
+    /* Benefits Section */
+    .benefits {
+      background: #ecfeff;
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .benefits h2 {
+      text-align: center;
+      color: #0891b2;
+      margin-bottom: 1.2rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    
+    .benefit {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .benefit-icon {
+      font-size: 2rem;
+      color: #0891b2;
+      margin-bottom: 0.8rem;
+    }
+    
+    .benefit h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .benefit p {
+      font-size: 0.9rem;
+    }
+    
+    /* CTA Section */
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    
+    .cta h2 {
+      margin-bottom: 1.2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #0891b2;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      background: #1e293b;
+      color: white;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.6rem;
+      }
+
+      .logo {
+        justify-content: center;
+      }
+
+      .contact-info {
+        flex-direction: row;   /* side by side instead of stacked */
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .contact-item {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.3rem 0.7rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        color: #fff;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      .services-grid,
+      .process-steps,
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-step {
+        padding-top: 3rem;
+      }
+
+      .step-number {
+        top: -15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Compact Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <!-- Added logo image -->
+        <img src="logo.png" alt="HALF CA Logo" class="logo-img">
+        <div class="logo-text">
+          <div class="logo-main">HALF CA</div>
+          <div class="logo-sub">Legal Format Services</div>
+        </div>
+      </div>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <span>📧 halfca33@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <span>📞 91+ 8828048467</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Professional Legal Documentation Services</h2>
+      <p>All types of legal formats and agreements for your business and personal needs</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Introduction -->
+    <section class="intro">
+      <p>We provide expertly drafted legal documents and agreements for various purposes. Our comprehensive legal format services ensure that all your documentation needs are met with precision and compliance.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+      <h2 class="section-title">Our Legal Format Services</h2>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Business Agreements</h3>
+          <p>Partnership deeds, LLP agreements, MOUs, and other business-related legal documents.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Property Documents</h3>
+          <p>Rental agreements, lease deeds, sale agreements, and other property-related documentation.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Affidavits & Declarations</h3>
+          <p>All types of affidavits, declarations, and notarized documents for various purposes.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Legal Notices</h3>
+          <p>Drafting and sending legal notices for various purposes including recovery, eviction, etc.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Contracts & Agreements</h3>
+          <p>Service agreements, employment contracts, vendor agreements, and other contractual documents.</p>
+        </div>
+        
+        <div class="service-card">
+          <h3>Custom Legal Formats</h3>
+          <p>Tailor-made legal documents designed specifically for your unique requirements.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+      <h2 class="section-title">Comprehensive Legal Document Categories</h2>
+      
+      <div class="category">
+        <h3>Business & Commercial Documents</h3>
+        <ul class="category-list">
+          <li>Partnership Deeds</li>
+          <li>LLP Agreements</li>
+          <li>Memorandum of Understanding (MOU)</li>
+          <li>Business Contracts</li>
+          <li>Vendor Agreements</li>
+          <li>Service Level Agreements (SLA)</li>
+          <li>Non-Disclosure Agreements (NDA)</li>
+          <li>Terms and Conditions</li>
+        </ul>
+      </div>
+      
+      <div class="category">
+        <h3>Property & Real Estate Documents</h3>
+        <ul class="category-list">
+          <li>Rental Agreements</li>
+          <li>Leave and License Agreements</li>
+          <li>Lease Deeds</li>
+          <li>Sale Agreements</li>
+          <li>Gift Deeds</li>
+          <li>Affidavits for Property Transfer</li>
+          <li>Possession Letters</li>
+          <li>No Objection Certificates (NOC)</li>
+        </ul>
+      </div>
+      
+      <div class="category">
+        <h3>Personal & Legal Documents</h3>
+        <ul class="category-list">
+          <li>Affidavits for Various Purposes</li>
+          <li>Name Change Documents</li>
+          <li>Address Proof Affidavits</li>
+          <li>Marriage Affidavits</li>
+          <li>Income Certificates</li>
+          <li>Domestic Agreements</li>
+          <li>Will and Testament</li>
+          <li>General Power of Attorney</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+      <h2>Why Choose Our Legal Format Services?</h2>
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="benefit-icon">✓</div>
+          <h3>Legally Sound</h3>
+          <p>All documents drafted in compliance with current laws</p>
+        </div>
+        
+        <div class="benefit">
+          <div class="benefit-icon">✓</div>
+          <h3>Customizable</h3>
+          <p>Tailored to your specific requirements and situation</p>
+        </div>
+        
+        <div class="benefit">
+          <div class="benefit-icon">✓</div>
+          <h3>Expertly Drafted</h3>
+          <p>Prepared by professionals with legal expertise</p>
+        </div>
+        
+        <div class="benefit">
+          <div class="benefit-icon">✓</div>
+          <h3>Time-Saving</h3>
+          <p>Quick turnaround without compromising on quality</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+      <h2>Our Simple Process</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Requirement Understanding</h3>
+          <p>We discuss your specific documentation needs in detail.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Document Preparation</h3>
+          <p>Our experts prepare the legal format as per your requirements.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Review & Feedback</h3>
+          <p>You review the draft and provide feedback for modifications.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Finalization</h3>
+          <p>We incorporate your feedback and finalize the document.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">5</div>
+          <h3>Delivery</h3>
+          <p>You receive the final document in your preferred format.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <h2>Ready to Get Started?</h2>
+      <p>Contact us today for professional legal documentation services</p>
+      <a href="mailto:halfca33@gmail.com" class="btn">Get in Touch</a>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 HALF CA Business Solutions | Legal Documentation Experts</p>
+    </div>
+  </footer>
+</body>
+</html>
