@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GST Filing Services - HALF CA</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       line-height: 1.6;
@@ -20,237 +20,206 @@
       background-color: #f9fafb;
       padding-bottom: 2rem;
     }
-    
+
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    
-    /* Compact Header Styles */
+
+    /* Header */
     header {
       background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
       color: white;
       padding: 0.6rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
+
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .logo {
       display: flex;
       align-items: center;
     }
-    
+
     .logo img.logo-img {
-  width: 50px;   /* adjust size */
-  height: auto;
-  margin-right: 10px;
-}
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
 
     .logo-text {
       display: flex;
       flex-direction: column;
     }
-    
+
     .logo-main {
       font-size: 1.4rem;
       font-weight: 700;
-      line-height: 1.2;
     }
-    
+
     .logo-sub {
       font-size: 0.85rem;
       opacity: 0.9;
     }
-    
+
     .contact-info {
       display: flex;
       gap: 1.5rem;
     }
-    
+
     .contact-item {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       font-size: 0.9rem;
     }
-    
-    /* Hero Section */
+
+    /* Hero */
     .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       color: white;
       padding: 2.5rem 1rem;
       text-align: center;
       margin-bottom: 2.5rem;
     }
-    
+
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
     }
-    
+
     .hero h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-    
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    /* Content Section */
+
+    /* Intro */
     .intro {
       text-align: center;
       margin-bottom: 2.5rem;
       padding: 0 1rem;
     }
-    
+
     .intro p {
       font-size: 1.1rem;
       max-width: 800px;
       margin: 0 auto;
     }
-    
+
+    /* Services Section */
     .services {
       margin-bottom: 3rem;
     }
-    
+
     .section-title {
       text-align: center;
       color: #2563eb;
       margin-bottom: 2rem;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid #e5e7eb;
+      font-size: 1.8rem;
+      font-weight: 700;
     }
-    
+
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.8rem;
-      margin-bottom: 2rem;
     }
-    
+
     .service-card {
       background: white;
       border-radius: 10px;
-      padding: 1.8rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      height: 100%;
-      text-align: center;
+      justify-content: space-between;
     }
-    
+
     .service-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
-    
+
     .service-card h3 {
       color: #2563eb;
       margin-bottom: 1rem;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
     }
-    
+
     .service-card p {
       color: #4b5563;
-      flex-grow: 1;
+      font-size: 1rem;
+      margin-bottom: 1rem;
     }
-    
-    /* Pricing Card Special Styling */
+
+    /* Special Pricing Card */
     .pricing-card {
       background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
       color: white;
     }
-    
+
     .pricing-card h3 {
       color: white;
     }
-    
+
     .pricing-card p {
       color: rgba(255, 255, 255, 0.9);
     }
-    
+
     .price-tag {
       font-size: 1.8rem;
-      color: #fff;
       font-weight: bold;
       margin: 1rem 0;
       background: rgba(255, 255, 255, 0.2);
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
       display: inline-block;
     }
-    
-    /* Benefits Section */
+
+    /* Benefits */
     .benefits {
       background: #dbeafe;
       border-radius: 10px;
       padding: 2rem;
       margin-bottom: 3rem;
     }
-    
+
     .benefits h2 {
       text-align: center;
       color: #2563eb;
       margin-bottom: 1.5rem;
     }
-    
+
     .benefits-list {
       list-style: none;
+      max-width: 700px;
+      margin: 0 auto;
     }
-    
+
     .benefits-list li {
       padding: 0.7rem 0;
       padding-left: 2rem;
       position: relative;
     }
-    
-    .benefits-list li:before {
+
+    .benefits-list li::before {
       content: "✓";
       color: #059669;
       position: absolute;
       left: 0;
       font-weight: bold;
     }
-    
-    /* CTA Section */
-    .cta {
-      text-align: center;
-      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-      color: white;
-      padding: 2.5rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-    }
-    
-    .cta h2 {
-      margin-bottom: 1.5rem;
-    }
-    
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #2563eb;
-      padding: 0.8rem 1.8rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
+
     /* Footer */
     footer {
       text-align: center;
@@ -259,83 +228,43 @@
       color: white;
       margin-top: 2rem;
     }
-    
-   /* Mobile Header Fix */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
 
-  .logo {
-    margin-bottom: 0.5rem;
-    justify-content: center;
-  }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
 
-  .contact-info {
-    flex-direction: row;  /* keep email & phone side by side */
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .contact-item {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
-  }
-
-  .contact-item i {
-    color: #fff;
-  }
-}
+      .contact-info {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
       .hero h2 {
         font-size: 1.7rem;
       }
-      
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .container {
-        max-width: 100%;
-        padding: 0 15px;
-      }
-    
+    }
   </style>
 </head>
 <body>
-  <!-- Compact Header -->
- <!-- Compact Header -->
-<header>
-  <div class="container header-content">
-    <div class="logo">
-      <!-- Added logo image -->
-      <img src="logo.png" alt="HALF CA Logo" class="logo-img">
-      <div class="logo-text">
-        <div class="logo-main">HALF CA</div>
-        <div class="logo-sub">Business Solutions</div>
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <img src="logo.png" alt="HALF CA Logo" class="logo-img">
+        <div class="logo-text">
+          <div class="logo-main">HALF CA</div>
+          <div class="logo-sub">Business Solutions</div>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <div class="contact-item"><i class="fas fa-envelope"></i> halfca33@gmail.com</div>
+        <div class="contact-item"><i class="fas fa-phone"></i> +91 8828048467</div>
       </div>
     </div>
-    
-    <div class="contact-info">
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <span>halfca33@gmail.com</span>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-phone"></i>
-        <span>+91 8828048467</span>
-      </div>
-    </div>
-  </div>
-</header>
+  </header>
 
-
-  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
       <h2>Simplify Your GST Filing Process</h2>
@@ -343,53 +272,48 @@
     </div>
   </section>
 
-  <!-- Main Content -->
   <main class="container">
-    <!-- Introduction -->
     <section class="intro">
       <p>HALF CA Business Solutions provides end-to-end GST services for individuals, small businesses, and enterprises. Our focus is on accuracy, compliance, and making tax filing simple for you.</p>
     </section>
 
-    <!-- Services Section -->
     <section class="services">
       <h2 class="section-title">Our GST Services</h2>
-      
       <div class="services-grid">
         <div class="service-card">
-          <h3>Monthly & Quarterly GST Return Filing</h3>
+          <h3>1. Monthly & Quarterly GST Return Filing</h3>
           <p>We handle all types of GST return filings (GSTR-1, GSTR-3B, GSTR-4, GSTR-9, etc.) with accuracy and timely submission to avoid penalties.</p>
         </div>
-        
+
         <div class="service-card">
-          <h3>GST Registration & Cancellation</h3>
+          <h3>2. GST Registration & Cancellation</h3>
           <p>Assistance with new GST registration, amendment of existing registration, and cancellation process when needed.</p>
         </div>
-        
+
         <div class="service-card">
-          <h3>Input Tax Credit Reconciliation</h3>
+          <h3>3. Input Tax Credit Reconciliation</h3>
           <p>We help you maximize your tax savings through proper ITC claims, documentation, and reconciliation of mismatches.</p>
         </div>
-        
+
         <div class="service-card">
-          <h3>GST Notice Handling</h3>
+          <h3>4. GST Notice Handling</h3>
           <p>Professional assistance in responding to GST notices, assessments, and departmental communications.</p>
         </div>
-        
+
         <div class="service-card">
-          <h3>Refund Processing</h3>
+          <h3>5. Refund Processing</h3>
           <p>Help with filing and follow-up for GST refunds to ensure timely receipt of eligible refund amounts.</p>
         </div>
-        
+
         <div class="service-card pricing-card">
-          <h3>Affordable Pricing</h3>
+          <h3>6. Affordable Pricing</h3>
           <p>Our GST filing services start at</p>
           <div class="price-tag">₹700 Only</div>
-          <p>Final pricing depends on your business requirements and turnover</p>
+          <p>Final pricing depends on your business requirements and turnover.</p>
         </div>
       </div>
     </section>
 
-    <!-- Benefits Section -->
     <section class="benefits">
       <h2>Why Choose Our GST Services?</h2>
       <ul class="benefits-list">
@@ -401,16 +325,12 @@
         <li>Secure handling of your financial data</li>
       </ul>
     </section>
-
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <p>© 2025 HALF CA Business Solutions | GST Filing Experts</p>
     </div>
   </footer>
 </body>
-
 </html>
-
