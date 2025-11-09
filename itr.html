@@ -3,230 +3,221 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ITR Filing Services - HALF CA</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <title>GST Filing Services - HALF CA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       line-height: 1.6;
       color: #333;
       background-color: #f9fafb;
-      padding-bottom: 1rem;
+      padding-bottom: 2rem;
     }
-    
+
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    
-    /* Header Styles */
+
+    /* Header */
     header {
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
       color: white;
       padding: 0.8rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
+
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
     }
 
-    .logo-img {
+    .logo img.logo-img {
       width: 50px;
       height: auto;
+      margin-right: 10px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
     }
 
     .logo-main {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      line-height: 1.2;
     }
-    
+
     .logo-sub {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       opacity: 0.9;
     }
-    
+
     .contact-info {
       display: flex;
       gap: 1.5rem;
     }
-    
+
     .contact-item {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       font-size: 0.9rem;
     }
-    
-    /* Hero Section */
+
+    /* Hero */
     .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       color: white;
       padding: 3rem 1rem;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
-    
+
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
     }
-    
+
     .hero h1 {
       font-size: 2.2rem;
       margin-bottom: 1rem;
     }
-    
+
     .hero p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto;
     }
-    
-    /* Content Section */
+
+    /* Intro */
     .intro {
       text-align: center;
       margin-bottom: 2.5rem;
       padding: 0 1rem;
     }
-    
+
     .intro p {
       font-size: 1.1rem;
       max-width: 800px;
       margin: 0 auto;
       line-height: 1.7;
     }
-    
+
+    /* Services Section */
     .services {
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
-    
+
     .section-title {
       text-align: center;
-      color: #059669;
+      color: #2563eb;
       margin-bottom: 2rem;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid #e5e7eb;
       font-size: 1.8rem;
+      font-weight: 700;
     }
-    
+
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 1.8rem;
-      margin-bottom: 1.5rem;
     }
-    
+
     .service-card {
       background: white;
-      border-radius: 8px;
-      padding: 1.8rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    
+
     .service-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
-    
+
     .service-card h3 {
-      color: #059669;
+      color: #2563eb;
       margin-bottom: 1rem;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
+      min-height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    
+
     .service-card p {
       color: #4b5563;
       font-size: 1rem;
-      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex-grow: 1;
     }
-    
-    /* Benefits Section */
+
+    .service-card ul {
+      text-align: left;
+      color: #4b5563;
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .service-card li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Benefits */
     .benefits {
-      background: #d1fae5;
+      background: #dbeafe;
       border-radius: 10px;
       padding: 2rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
-    
+
     .benefits h2 {
       text-align: center;
-      color: #059669;
+      color: #2563eb;
       margin-bottom: 1.5rem;
-      font-size: 1.8rem;
     }
-    
+
     .benefits-list {
       list-style: none;
       max-width: 700px;
       margin: 0 auto;
     }
-    
+
     .benefits-list li {
       padding: 0.7rem 0;
       padding-left: 2rem;
       position: relative;
-      font-size: 1rem;
     }
-    
-    .benefits-list li:before {
+
+    .benefits-list li::before {
       content: "✓";
       color: #059669;
       position: absolute;
       left: 0;
       font-weight: bold;
-      font-size: 1.1rem;
     }
-    
-    /* CTA Section */
-    .cta {
-      text-align: center;
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
-      color: white;
-      padding: 2.5rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-    }
-    
-    .cta h2 {
-      margin-bottom: 1.2rem;
-      font-size: 1.8rem;
-    }
-    
-    .btn {
-      display: inline-block;
-      background: white;
-      color: #059669;
-      padding: 0.8rem 1.8rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-    }
-    
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
+
     /* Footer */
     footer {
       text-align: center;
@@ -234,43 +225,29 @@
       background: #1e293b;
       color: white;
       margin-top: 2rem;
-      font-size: 0.9rem;
     }
-    
+
+    /* Responsive */
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
-        align-items: center;
         text-align: center;
         gap: 1rem;
       }
 
-      .logo {
-        justify-content: center;
-      }
-
       .contact-info {
-        flex-direction: column;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 0.8rem;
-      }
-
-      .contact-item {
-        background: rgba(255, 255, 255, 0.15);
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        font-size: 0.9rem;
-        color: #fff;
       }
 
       .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
       
-      .hero p {
-        font-size: 1.1rem;
+      .service-card h3 {
+        min-height: auto;
       }
-
+      
       .services-grid {
         grid-template-columns: 1fr;
       }
@@ -278,90 +255,91 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container header-content">
       <div class="logo">
-        <img src="logo.png" alt="HALF CA Logo" class="logo-img">
+        <img src="https://via.placeholder.com/50x50/2563eb/ffffff?text=HC" alt="HALF CA Logo" class="logo-img">
         <div class="logo-text">
           <div class="logo-main">HALF CA</div>
-          <div class="logo-sub">ITR Filing Services</div>
+          <div class="logo-sub">Business Solutions</div>
         </div>
       </div>
-      
+
       <div class="contact-info">
-        <div class="contact-item">
-          <span>📧 halfca33@gmail.com</span>
-        </div>
-        <div class="contact-item">
-          <span>📞 +91 8828048467</span>
-        </div>
+        <div class="contact-item"><i class="fas fa-envelope"></i> halfca33@gmail.com</div>
+        <div class="contact-item"><i class="fas fa-phone"></i> +91 8828048467</div>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Fast & Secure ITR Filing</h1>
-      <p>Expert income tax return services for individuals and businesses</p>
+      <h1>Simplify Your GST Filing Process</h1>
+      <p>Expert GST services designed for businesses of all sizes</p>
     </div>
   </section>
 
-  <!-- Main Content -->
   <main class="container">
-    <!-- Introduction -->
     <section class="intro">
-      <p>Our expert team ensures your Income Tax Returns are filed accurately and on time. We help minimize tax liability while ensuring full compliance with regulations.</p>
+      <p>HALF CA Business Solutions provides end-to-end GST services for individuals, small businesses, and enterprises. Our focus is on accuracy, compliance, and making tax filing simple for you.</p>
     </section>
 
-    <!-- Services Section -->
     <section class="services">
-      <h2 class="section-title">Our ITR Services</h2>
-      
+      <h2 class="section-title">Our GST Services</h2>
       <div class="services-grid">
         <div class="service-card">
-          <h3>Salary & Business ITR Filing</h3>
-          <p>Comprehensive tax filing services for salaried individuals, professionals, and businesses with complete documentation support.</p>
+          <h3>1. Monthly & Quarterly GST Return Filing</h3>
+          <p>We handle all types of GST return filings (GSTR-1, GSTR-3B, GSTR-4, GSTR-9, etc.) with accuracy and timely submission to avoid penalties.</p>
         </div>
-        
+
         <div class="service-card">
-          <h3>Capital Gains Filing</h3>
-          <p>Expert handling of capital gains from stocks, mutual funds, property, and other investments with optimal tax planning.</p>
+          <h3>2. GST Registration & Cancellation</h3>
+          <p>Assistance with new GST registration, amendment of existing registration, and cancellation process when needed.</p>
         </div>
-        
+
         <div class="service-card">
-          <h3>Tax Savings Guidance</h3>
-          <p>Professional advice on investments and expenses that qualify for tax deductions under various sections of the Income Tax Act.</p>
+          <h3>3. Input Tax Credit Reconciliation</h3>
+          <p>We help you maximize your tax savings through proper ITC claims, documentation, and reconciliation of mismatches.</p>
+          <ul>
+            <li>ITC verification and validation</li>
+            <li>Reconciliation with vendor data</li>
+            <li>Maximizing eligible credits</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3>4. GST Notice Handling</h3>
+          <p>Professional assistance in responding to GST notices, assessments, and departmental communications.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>5. Refund Processing</h3>
+          <p>Help with filing and follow-up for GST refunds to ensure timely receipt of eligible refund amounts.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>6. GST Advisory & Consultation</h3>
+          <p>Expert guidance on complex GST matters, compliance requirements, and strategic tax planning.</p>
         </div>
       </div>
     </section>
 
-    <!-- Benefits Section -->
     <section class="benefits">
-      <h2>Why Choose Our ITR Services?</h2>
+      <h2>Why Choose Our GST Services?</h2>
       <ul class="benefits-list">
-        <li>Expert tax professionals with years of experience</li>
-        <li>Accurate filing to avoid notices and penalties</li>
-        <li>Maximum tax savings through legitimate deductions</li>
-        <li>Timely filing before deadlines</li>
-        <li>Personalized service for your specific tax situation</li>
-        <li>Complete confidentiality of your financial information</li>
+        <li>Expert professionals with years of experience in GST filing</li>
+        <li>Timely and accurate filing to avoid penalties</li>
+        <li>Personalized service tailored to your business needs</li>
+        <li>Transparent pricing with no hidden charges</li>
+        <li>Dedicated support for all your GST-related queries</li>
+        <li>Secure handling of your financial data</li>
       </ul>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-      <h2>Ready to File Your ITR?</h2>
-      <p>Contact us today for a free consultation</p>
-      <a href="mailto:halfca33@gmail.com" class="btn">Get Started</a>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>© 2025 HALF CA Business Solutions | Income Tax Filing Experts</p>
+      <p>© 2025 HALF CA Business Solutions | GST Filing Experts</p>
     </div>
   </footer>
 </body>
