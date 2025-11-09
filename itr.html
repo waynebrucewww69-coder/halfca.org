@@ -45,10 +45,17 @@
       align-items: center;
     }
 
-    .logo img.logo-img {
+    .logo-img {
       width: 50px;
-      height: auto;
+      height: 50px;
       margin-right: 10px;
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #2563eb;
     }
 
     .logo-text {
@@ -258,7 +265,8 @@
   <header>
     <div class="container header-content">
       <div class="logo">
-        <img src="https://via.placeholder.com/50x50/2563eb/ffffff?text=HC" alt="HALF CA Logo" class="logo-img">
+        <!-- Using a CSS-based logo to ensure it's always visible -->
+        <div class="logo-img">HC</div>
         <div class="logo-text">
           <div class="logo-main">HALF CA</div>
           <div class="logo-sub">Business Solutions</div>
@@ -300,11 +308,6 @@
         <div class="service-card">
           <h3>3. Input Tax Credit Reconciliation</h3>
           <p>We help you maximize your tax savings through proper ITC claims, documentation, and reconciliation of mismatches.</p>
-          <ul>
-            <li>ITC verification and validation</li>
-            <li>Reconciliation with vendor data</li>
-            <li>Maximizing eligible credits</li>
-          </ul>
         </div>
 
         <div class="service-card">
