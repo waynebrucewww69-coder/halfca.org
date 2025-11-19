@@ -28,10 +28,25 @@
 
     body {
       font-family: "Poppins", sans-serif;
-      background: var(--light);
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
       color: var(--text);
       overflow-x: hidden;
       line-height: 1.6;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(102, 16, 242, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(13, 110, 253, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 217, 102, 0.05) 0%, transparent 50%);
+      z-index: -1;
     }
 
     header {
@@ -181,6 +196,8 @@
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .about-me-content::before {
@@ -293,7 +310,7 @@
     }
 
     .card {
-      background: var(--white);
+      background: rgba(255, 255, 255, 0.9);
       padding: 40px 30px;
       border-radius: 20px;
       box-shadow: var(--shadow);
@@ -302,6 +319,7 @@
       position: relative;
       overflow: hidden;
       z-index: 1;
+      backdrop-filter: blur(10px);
     }
 
     .card::before {
@@ -345,12 +363,28 @@
       border-radius: 30px;
       margin-bottom: 80px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
     }
 
     .stats-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 30px;
+      position: relative;
+      z-index: 1;
     }
 
     .stat-item {
@@ -371,45 +405,68 @@
     /* CTA section */
     .cta {
       text-align: center;
-      padding: 60px 40px;
-      background: var(--white);
+      padding: 80px 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
       border-radius: 25px;
       box-shadow: var(--shadow);
       margin-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
     }
 
     .cta h2 {
-      color: var(--primary);
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       margin-bottom: 20px;
+      font-weight: 700;
     }
 
     .cta p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
+      font-size: 1.3rem;
+      margin-bottom: 40px;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      opacity: 0.9;
     }
 
     .btn {
       display: inline-block;
-      padding: 15px 35px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: var(--white);
+      padding: 18px 45px;
+      background: var(--white);
+      color: var(--primary);
       border-radius: 50px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
+      font-weight: 700;
+      font-size: 1.2rem;
       transition: var(--transition);
-      box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
       border: none;
       cursor: pointer;
     }
 
     .btn:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(13, 110, 253, 0.4);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      background: var(--accent);
+      color: var(--dark);
     }
 
     footer {
@@ -528,6 +585,18 @@
       .stats-container {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .cta {
+        padding: 60px 30px;
+      }
+
+      .cta h2 {
+        font-size: 2rem;
+      }
+
+      .cta p {
+        font-size: 1.1rem;
+      }
     }
 
     @media (max-width: 576px) {
@@ -540,7 +609,7 @@
       }
 
       .cta {
-        padding: 40px 20px;
+        padding: 50px 20px;
       }
 
       .cta h2 {
@@ -603,22 +672,19 @@
         
         <h4 style="color: var(--primary); margin: 25px 0 15px;">Education & Qualifications</h4>
         <p>
-
           Graduated from Dayananda Sagar University, Bangalore
-Built core expertise in accounting, analytics, and financial management.
-Master of Commerce (M.Com) from Chetana College, Mumbai
-Specialized in advanced financial systems, corporate structures, and business economics.
-Pursuing ACCA (Completed ACCA Intermediate)
-Strengthens global finance and reporting capabilities aligned with international standards.
-Pursuing CMA
-Builds deep competence in cost strategy, business management, and performance analytics.
+          Built core expertise in accounting, analytics, and financial management.
+          Master of Commerce (M.Com) from Chetana College, Mumbai
+          Specialized in advanced financial systems, corporate structures, and business economics.
+          Pursuing ACCA (Completed ACCA Intermediate)
+          Strengthens global finance and reporting capabilities aligned with international standards.
+          Pursuing CMA
+          Builds deep competence in cost strategy, business management, and performance analytics.
         </p>
         
         <p>
           When I'm not helping clients with their financial needs, I enjoy mentoring young entrepreneurs and conducting financial literacy workshops.
         </p>
-        
-        
       </div>
     </div>
   </div>
@@ -667,16 +733,18 @@ Builds deep competence in cost strategy, business management, and performance an
 
   <!-- CTA Section -->
   <div class="cta fade-in">
-    <h2>Ready to Simplify Your Financial Compliance?</h2>
-    <p>Contact us today for a free consultation and discover how HALF CA Business Solutions can help your business thrive.</p>
-    <a href="halfca33@gmail.com" class="btn">Get In Touch</a>
+    <div class="cta-content">
+      <h2>Ready to Simplify Your Financial Compliance?</h2>
+      <p>Contact us today for a free consultation and discover how HALF CA Business Solutions can help your business thrive.</p>
+      <a href="mailto:halfca38@gmail.com" class="btn">Get In Touch</a>
+    </div>
   </div>
 
 </div>
 
 <footer>
   <p>&copy; 2025 HALF CA Business Solutions | Contact us: 
-  <a href="halfca33@gmail.com">halfca33@gmail.com</a></p>
+  <a href="mailto:halfca38@gmail.com">halfca38@gmail.com</a></p>
   <p>Follow us on social media for financial tips and updates</p>
 </footer>
 
@@ -706,8 +774,3 @@ Builds deep competence in cost strategy, business management, and performance an
 
 </body>
 </html>
-
-
-
-
-
