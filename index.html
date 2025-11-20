@@ -262,6 +262,72 @@
             color: #1a365d;
         }
         
+        /* Registration Section */
+        .registration {
+            background: #1a365d;
+            color: white;
+            padding: 5rem 2rem;
+        }
+        
+        .registration-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .registration-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(214, 158, 46, 0.3);
+        }
+        
+        .submit-btn {
+            background: #d69e2e;
+            color: #1a365d;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
         /* Contact Section */
         .contact {
             background: #1a365d;
@@ -368,6 +434,10 @@
             
             .hero p {
                 font-size: 1rem;
+            }
+            
+            .registration-container {
+                padding: 2rem;
             }
         }
     </style>
@@ -521,6 +591,35 @@
         </div>
     </section>
 
+    <!-- Registration Section -->
+    <section class="registration" id="registration">
+        <div class="section-title">
+            <h2 style="color: white;">Register With Us</h2>
+            <p style="color: rgba(255, 255, 255, 0.8);">Provide your details and we'll get in touch with you</p>
+        </div>
+        
+        <div class="registration-container">
+            <form class="registration-form" id="customerForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Registration</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="section-title">
@@ -560,9 +659,24 @@
     <a href="https://wa.me/918828048467" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <script>
+        // Form submission handling
+        document.getElementById('customerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            
+            // In a real application, you would send this data to your server
+            // For now, we'll just show a confirmation message
+            alert(`Thank you ${name}! Your registration has been received. We will contact you at ${phone} or ${email} shortly.`);
+            
+            // Reset the form
+            document.getElementById('customerForm').reset();
+        });
+    </script>
 </body>
 </html>
-
-
-
-
