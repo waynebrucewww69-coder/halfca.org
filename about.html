@@ -180,12 +180,12 @@
       transform: scale(1.05);
     }
 
-    /* About Me section */
-    .about-me {
+    /* About We section */
+    .about-we {
       margin-bottom: 100px;
     }
 
-    .about-me-content {
+    .about-we-content {
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 50px;
@@ -198,9 +198,10 @@
       overflow: hidden;
       backdrop-filter: blur(10px);
       background: rgba(255, 255, 255, 0.9);
+      margin-bottom: 60px;
     }
 
-    .about-me-content::before {
+    .about-we-content::before {
       content: '';
       position: absolute;
       top: 0;
@@ -529,7 +530,7 @@
 
     /* Responsive */
     @media (max-width: 992px) {
-      .about-section, .about-me-content {
+      .about-section, .about-we-content {
         grid-template-columns: 1fr;
         text-align: center;
       }
@@ -574,7 +575,7 @@
         font-size: 1.8rem;
       }
 
-      .about-me-content {
+      .about-we-content {
         padding: 30px 20px;
       }
 
@@ -654,8 +655,34 @@
   <!-- About We Section -->
   <div class="about-we">
     <div class="section-title">
-      <h2>About Me</h2>
+      <h2>About We</h2>
     </div>
+    
+    <!-- Founder Section -->
+    <div class="about-we-content fade-in">
+      <div class="profile-container">
+        <img src="founder-pic.png" alt="Founder Name" class="profile-img">
+      </div>
+      <div class="profile-details">
+        <h3>Founder Name</h3>
+        <div class="title">Founder of HALF CA Business Solutions</div>
+        <p>
+          As the visionary behind HALF CA Business Solutions, our founder established this company with a clear mission: 
+          to democratize access to professional financial services for businesses of all sizes.
+        </p>
+        <p>
+          With over a decade of experience in financial consulting and business strategy, our founder recognized the gap 
+          in the market for affordable yet high-quality financial services. This insight led to the creation of HALF CA, 
+          where we deliver premium financial solutions at accessible prices.
+        </p>
+        <p>
+          Our founder's philosophy centers on empowering entrepreneurs and small business owners with the financial 
+          clarity and compliance support they need to thrive in today's competitive landscape.
+        </p>
+      </div>
+    </div>
+    
+    <!-- CEO Section -->
     <div class="about-we-content fade-in">
       <div class="profile-container">
         <img src="steve pic.png" alt="Steve Marcellus" class="profile-img">
@@ -774,4 +801,3 @@
 
 </body>
 </html>
-
