@@ -9,16 +9,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #0d6efd;
-      --secondary: #6610f2;
-      --dark: #111010;
-      --light: #f5f7fa;
-      --text: #333;
-      --white: #ffffff;
-      --shadow: 0 10px 30px rgba(0,0,0,0.1);
-      --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
-      --transition: all 0.4s ease;
-      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+     
+    --primary: #0d6efd;
+    --secondary: #6610f2;
+    --dark: #111010;
+    --light: #f5f7fa;
+    --text: #333;
+    --white: #ffffff;
+    --accent: #FFD966; 
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
+    --transition: all 0.4s ease;
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary))
     }
 
     * {
@@ -394,13 +396,12 @@
     }
 
     .highlight {
-      background: linear-gradient(120deg, var(--accent) 0%, var(--accent) 100%);
-      background-repeat: no-repeat;
-      background-size: 100% 0.3em;
-      background-position: 0 88%;
-      transition: background-size 0.25s ease-in;
-      padding: 0 3px;
-      font-weight: 600;
+     .highlight {
+  font-weight: 600;
+  color: var(--primary);
+  background: transparent;
+  padding: 0;
+}
     }
 
     .about-image {
@@ -1109,6 +1110,7 @@
   <div class="gst-poster fade-in">
     <div class="poster-container">
       <div class="poster-content">
+        <div class="poster-badge">Special Offer</div>
         <h2 class="poster-title">Why CA when you have Half CA?!</h2>
         <p class="poster-tagline">Professional GST Filing Services</p>
         <span class="poster-highlight">File your GSTR @₹700</span>
