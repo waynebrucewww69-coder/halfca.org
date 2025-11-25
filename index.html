@@ -935,33 +935,36 @@
     </section>
 
     <!-- Registration Section -->
-    <section class="registration" id="registration">
-        <div class="section-title">
-            <h2 style="color: white;">Register With Us</h2>
-            <p style="color: rgba(255, 255, 255, 0.8);">Provide your details and we'll get in touch with you</p>
-        </div>
-        
-        <div class="registration-container">
-            <form class="registration-form" id="customerForm">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                </div>
-                
-                <button type="submit" class="submit-btn">Submit Registration</button>
-            </form>
-        </div>
-    </section>
+    <!-- Replace your current form with this -->
+<form class="registration-form" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST" target="hidden_iframe">
+    <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="entry.123456789" required placeholder="Enter your full name">
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="entry.987654321" required placeholder="Enter your phone number">
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="entry.456789123" required placeholder="Enter your email address">
+    </div>
+    
+    <button type="submit" class="submit-btn">Submit Registration</button>
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+document.getElementById('customerForm').addEventListener('submit', function(e) {
+    setTimeout(function() {
+        alert('Thank you! Your registration has been received. We will contact you shortly.');
+        document.getElementById('customerForm').reset();
+    }, 1000);
+});
+</script>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1060,6 +1063,7 @@
     </script>
 </body>
 </html>
+
 
 
 
