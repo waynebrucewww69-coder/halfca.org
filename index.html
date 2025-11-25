@@ -516,7 +516,9 @@
             font-size: 1.1rem;
         }
         
-        .form-group input {
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             padding: 1.2rem;
             border: none;
             border-radius: 10px;
@@ -524,12 +526,20 @@
             font-size: 1rem;
             transition: var(--transition);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-family: inherit;
         }
         
-        .form-group input:focus {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
             outline: none;
             background: white;
             box-shadow: 0 0 0 3px rgba(214, 158, 46, 0.5);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
         }
         
         .submit-btn {
@@ -551,6 +561,28 @@
         .submit-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Success Message */
+        .form-success {
+            background: rgba(72, 187, 120, 0.9);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .form-success.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
         }
         
         /* Contact Section */
@@ -724,6 +756,15 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
             }
         }
         
@@ -930,41 +971,75 @@
                 </p>
             </div>
             
-           
+            <!-- Social Media Links -->
+            <div class="social-links-main">
+                <a href="https://www.instagram.com/stevemarcellus_/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/steve-marcellus-/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Registration Section -->
-    <!-- Replace your current form with this -->
-<form class="registration-form" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST" target="hidden_iframe">
-    <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="entry.123456789" required placeholder="Enter your full name">
-    </div>
-    
-    <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="entry.987654321" required placeholder="Enter your phone number">
-    </div>
-    
-    <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="entry.456789123" required placeholder="Enter your email address">
-    </div>
-    
-    <button type="submit" class="submit-btn">Submit Registration</button>
-</form>
-
-<iframe name="hidden_iframe" style="display:none;"></iframe>
-
-<script>
-document.getElementById('customerForm').addEventListener('submit', function(e) {
-    setTimeout(function() {
-        alert('Thank you! Your registration has been received. We will contact you shortly.');
-        document.getElementById('customerForm').reset();
-    }, 1000);
-});
-</script>
+    <section class="registration" id="registration">
+        <div class="section-title">
+            <h2 style="color: white;">Register With Us</h2>
+            <p style="color: rgba(255, 255, 255, 0.8);">Provide your details and we'll get in touch with you</p>
+        </div>
+        
+        <div class="registration-container">
+            <!-- Formspree Form -->
+            <form class="registration-form" action="https://formspree.io/f/xvojzpyb" method="POST" id="customerForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Service Interested In</label>
+                    <select id="service" name="service">
+                        <option value="">Select a service</option>
+                        <option value="GST Filing">GST Filing</option>
+                        <option value="ITR Filing">ITR Filing</option>
+                        <option value="Rental Agreements">Rental Agreements</option>
+                        <option value="Partnership Deeds">Partnership Deeds</option>
+                        <option value="Legal Formats">Legal Formats</option>
+                        <option value="ID Download">ID Download</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message (Optional)</label>
+                    <textarea id="message" name="message" placeholder="Any specific requirements or questions..." rows="3"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Submit Registration
+                </button>
+            </form>
+            
+            <!-- Success Message -->
+            <div class="form-success" id="successMessage">
+                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h3>Thank You!</h3>
+                <p>Your registration has been received successfully. We will contact you shortly.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1003,10 +1078,10 @@ document.getElementById('customerForm').addEventListener('submit', function(e) {
             
             <!-- Social Media Links in Footer -->
             <div class="social-links">
-                <a href="https://www.instagram.com/halfca_business_solutions?igsh=ZXQyMmRkcjYxd3hz&utm_source=qr" target="_blank" title="Instagram">
+                <a href="https://www.instagram.com/stevemarcellus_/" target="_blank" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/steve-marcellus-9b2188238?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/steve-marcellus-/" target="_blank" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="mailto:halfca33@gmail.com" title="Email">
@@ -1022,21 +1097,49 @@ document.getElementById('customerForm').addEventListener('submit', function(e) {
     </a>
 
     <script>
-        // Form submission handling
-        document.getElementById('customerForm').addEventListener('submit', function(e) {
+        // Form submission handling for Formspree
+        document.getElementById('customerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            const form = this;
             
-            // In a real application, you would send this data to your server
-            // For now, we'll just show a confirmation message
-            alert(`Thank you ${name}! Your registration has been received. We will contact you at ${phone} or ${email} shortly.`);
+            // Show loading state
+            submitBtn.innerHTML = 'Submitting... <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
             
-            // Reset the form
-            document.getElementById('customerForm').reset();
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').classList.add('show');
+                    form.reset();
+                    
+                    // Hide form
+                    form.style.display = 'none';
+                    
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                alert('Sorry, there was an error submitting your form. Please try again or contact us directly.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
         });
 
         // Fade in animation on scroll
@@ -1063,7 +1166,3 @@ document.getElementById('customerForm').addEventListener('submit', function(e) {
     </script>
 </body>
 </html>
-
-
-
-
