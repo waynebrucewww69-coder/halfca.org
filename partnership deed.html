@@ -4,389 +4,728 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Partnership Deed Services - HALF CA</title>
-   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f9fafb;
-      padding-bottom: 1rem;
+
+    :root {
+      --primary: #1a365d;
+      --secondary: #d69e2e;
+      --accent: #2d3748;
+      --light: #f5f7fa;
+      --dark: #1a202c;
+      --text: #2d3748;
+      --text-light: #718096;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
+      --transition: all 0.4s ease;
     }
-    
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      overflow-x: hidden;
+    }
+
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    
-    /* Compact Header Styles */
-    header {
-      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-      color: white;
-      padding: 0.8rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Animated Background */
+    .floating-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
     }
-    
+
+    .shape {
+      position: absolute;
+      opacity: 0.1;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      animation: float 20s infinite linear;
+    }
+
+    .shape:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      left: 80%;
+      animation-delay: -5s;
+    }
+
+    .shape:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      top: 80%;
+      left: 20%;
+      animation-delay: -10s;
+    }
+
+    .shape:nth-child(4) {
+      width: 100px;
+      height: 100px;
+      top: 30%;
+      left: 85%;
+      animation-delay: -15s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      33% {
+        transform: translateY(-30px) rotate(120deg);
+      }
+      66% {
+        transform: translateY(20px) rotate(240deg);
+      }
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 1.2rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      transition: var(--transition);
     }
 
     .logo-img {
-      width: 50px;   /* adjust logo size */
-      height: auto;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-right: 10px;
+      transition: var(--transition);
     }
 
-    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
     .logo-main {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
-      line-height: 1.2;
+      background: linear-gradient(to right, #fff, var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    
+
     .logo-sub {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       opacity: 0.9;
+      font-style: italic;
     }
-    
+
     .contact-info {
       display: flex;
-      gap: 1.2rem;
+      gap: 1.5rem;
     }
-    
+
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.85rem;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      transition: var(--transition);
     }
-    
+
+    .contact-item:hover {
+      color: var(--secondary);
+    }
+
     /* Hero Section */
     .hero {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       color: white;
-      padding: 2.5rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
     }
-    
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
-    
+
     .hero h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      animation: fadeInDown 1s ease;
     }
-    
+
     .hero p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
+      font-size: 1.3rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease 0.3s both;
     }
-    
-    /* Content Section */
+
+    /* Intro Section */
     .intro {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 4rem;
       padding: 0 1rem;
     }
-    
+
     .intro p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       max-width: 800px;
       margin: 0 auto;
+      line-height: 1.8;
+      color: var(--text-light);
     }
-    
+
+    /* Services Section */
     .services {
-      margin-bottom: 2.5rem;
+      margin-bottom: 4rem;
     }
-    
+
     .section-title {
       text-align: center;
-      color: #dc2626;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #e5e7eb;
+      margin-bottom: 3rem;
     }
-    
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 5px;
+      background: var(--secondary);
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
     }
-    
+
     .service-card {
       background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    
+
     .service-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-15px);
+      box-shadow: var(--shadow-lg);
     }
-    
+
     .service-card h3 {
-      color: #dc2626;
-      margin-bottom: 0.8rem;
-      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      min-height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    
+
     .service-card p {
-      color: #4b5563;
-      font-size: 0.95rem;
+      color: var(--text-light);
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      line-height: 1.7;
     }
-    
-    /* Key Features Section */
+
+    /* Features Section */
     .features {
-      background: #fee2e2;
-      border-radius: 8px;
-      padding: 1.8rem;
-      margin-bottom: 2.5rem;
+      background: rgba(219, 234, 254, 0.8);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 4rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
     }
-    
+
+    .features::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+
     .features h2 {
       text-align: center;
-      color: #dc2626;
-      margin-bottom: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      position: relative;
+      z-index: 1;
     }
-    
+
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
     }
-    
+
     .feature {
       background: white;
-      padding: 1.2rem;
-      border-radius: 8px;
+      padding: 2rem;
+      border-radius: 15px;
       text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
     }
-    
+
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
     .feature-icon {
-      font-size: 2rem;
-      color: #dc2626;
-      margin-bottom: 0.8rem;
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
     }
-    
+
     .feature h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
     }
-    
+
     .feature p {
-      font-size: 0.9rem;
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.6;
     }
-    
+
     /* Process Section */
     .process {
-      background: #fef2f2;
-      border-radius: 8px;
-      padding: 1.8rem;
-      margin-bottom: 2.5rem;
+      background: rgba(254, 242, 242, 0.8);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 4rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
     }
 
     .process h2 {
       text-align: center;
-      color: #dc2626;
-      margin-bottom: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      position: relative;
+      z-index: 1;
     }
 
     .process-steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
     }
 
     .process-step {
       background: white;
-      padding: 1.8rem 1.2rem 1.2rem;
-      border-radius: 8px;
+      padding: 2.5rem 1.5rem 1.5rem;
+      border-radius: 15px;
       text-align: center;
       position: relative;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-      padding-top: 3.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .process-step:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
     }
 
     .step-number {
       position: absolute;
-      top: -20px;
+      top: -25px;
       left: 50%;
       transform: translateX(-50%);
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: bold;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      font-size: 1.8rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .process-step h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: #111;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
     }
 
     .process-step p {
-      font-size: 0.9rem;
-      color: #444;
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.6;
     }
 
-    
     /* Documents Section */
     .documents {
-      background: #fef2f2;
-      border-radius: 8px;
-      padding: 1.8rem;
-      margin-bottom: 2.5rem;
+      background: rgba(254, 242, 242, 0.8);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 4rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
     }
-    
+
+    .documents::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+
     .documents h2 {
       text-align: center;
-      color: #dc2626;
-      margin-bottom: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      position: relative;
+      z-index: 1;
     }
-    
+
     .documents-list {
       list-style: none;
-    }
-    
-    .documents-list li {
-      padding: 0.6rem 0;
-      padding-left: 1.8rem;
-      position: relative;
-      font-size: 0.95rem;
-    }
-    
-    .documents-list li:before {
-      content: "•";
-      color: #dc2626;
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    
-    /* Pricing Section */
-    .pricing {
-      background: white;
-      border-radius: 8px;
-      padding: 1.8rem;
-      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
       max-width: 600px;
-      margin: 0 auto 2.5rem;
-      text-align: center;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
-    
-    .pricing h2 {
-      color: #dc2626;
-      margin-bottom: 0.8rem;
+
+    .documents-list li {
+      padding: 1rem 0;
+      padding-left: 3rem;
+      position: relative;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
     }
-    
-    .price-tag {
-      font-size: 1.6rem;
-      color: #dc2626;
+
+    .documents-list li:hover {
+      transform: translateX(10px);
+    }
+
+    .documents-list li:last-child {
+      border-bottom: none;
+    }
+
+    .documents-list li::before {
+      content: "✓";
+      color: #059669;
+      position: absolute;
+      left: 1rem;
       font-weight: bold;
-      margin: 0.8rem 0;
+      font-size: 1.3rem;
+      background: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    
-    .pricing p {
-      font-size: 0.95rem;
-    }
-    
+
     /* CTA Section */
     .cta {
       text-align: center;
-      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       color: white;
-      padding: 2rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
+      padding: 3rem;
+      border-radius: 20px;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
     }
-    
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
     .cta h2 {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
     }
-    
+
     .btn {
       display: inline-block;
-      background: white;
-      color: #dc2626;
-      padding: 0.7rem 1.5rem;
+      background: var(--secondary);
+      color: var(--primary);
+      padding: 1rem 2.5rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.3s ease;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
     }
-    
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: 0.5s;
+    }
+
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
-    
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
     /* Footer */
     footer {
       text-align: center;
-      padding: 1.2rem;
-      background: #1e293b;
+      padding: 2rem;
+      background: var(--accent);
       color: white;
-      margin-top: 2rem;
-      font-size: 0.9rem;
+      margin-top: 3rem;
+      position: relative;
+      overflow: hidden;
     }
-    
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 70px;
+      height: 70px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      z-index: 100;
+      transition: var(--transition);
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
-        align-items: center;
         text-align: center;
-        gap: 0.6rem;
-      }
-
-      .logo {
-        justify-content: center;
+        gap: 1rem;
       }
 
       .contact-info {
-        flex-direction: row;   /* side by side instead of stacked */
-        justify-content: center;
         flex-wrap: wrap;
-        gap: 0.6rem;
-      }
-
-      .contact-item {
-        background: rgba(255, 255, 255, 0.15);
-        padding: 0.3rem 0.7rem;
-        border-radius: 6px;
-        font-size: 0.85rem;
-        color: #fff;
+        justify-content: center;
       }
 
       .hero h2 {
-        font-size: 1.5rem;
+        font-size: 2.2rem;
+      }
+      
+      .service-card h3 {
+        min-height: auto;
       }
 
       .services-grid,
@@ -395,25 +734,40 @@
         grid-template-columns: 1fr;
       }
 
-      .process-step {
-        padding-top: 3rem;
+      .features,
+      .process,
+      .documents,
+      .cta {
+        padding: 2rem;
       }
 
       .step-number {
-        top: -15px;
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        top: -20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+
+      .documents-list li {
+        padding-left: 2.5rem;
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Compact Header -->
+  <!-- Animated Background -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <!-- Header -->
   <header>
     <div class="container header-content">
       <div class="logo">
-        <!-- Added logo image -->
         <img src="logo.png" alt="HALF CA Logo" class="logo-img">
         <div class="logo-text">
           <div class="logo-main">HALF CA</div>
@@ -422,12 +776,8 @@
       </div>
       
       <div class="contact-info">
-        <div class="contact-item">
-          <span>📧 halfca33@gmail.com</span>
-        </div>
-        <div class="contact-item">
-          <span>📞 +91 8828048467</span>
-        </div>
+        <div class="contact-item"><i class="fas fa-envelope"></i> halfca33@gmail.com</div>
+        <div class="contact-item"><i class="fas fa-phone"></i> +91 8828048467</div>
       </div>
     </div>
   </header>
@@ -449,35 +799,37 @@
 
     <!-- Services Section -->
     <section class="services">
-      <h2 class="section-title">Our Partnership Deed Services</h2>
+      <div class="section-title">
+        <h2>Our Partnership Deed Services</h2>
+      </div>
       
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>General Partnership Deed</h3>
           <p>Comprehensive partnership agreements for traditional business partnerships with clear terms and conditions.</p>
         </div>
         
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>Limited Liability Partnership (LLP) Deed</h3>
           <p>Professional deed drafting for LLPs as per the LLP Act, 2008 with compliance to all legal requirements.</p>
         </div>
         
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>Partnership Deed Modification</h3>
           <p>Assistance with modifying existing partnership deeds to accommodate changes in business structure or partners.</p>
         </div>
         
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>Partnership Dissolution Deed</h3>
           <p>Legal documentation for dissolving partnerships while ensuring proper settlement of assets and liabilities.</p>
         </div>
         
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>Notarization & Registration</h3>
           <p>End-to-end support for notarization and registration of partnership deeds as per government requirements.</p>
         </div>
         
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>Partnership Advisory Services</h3>
           <p>Expert guidance on partnership structures, profit-sharing models, and legal compliance requirements.</p>
         </div>
@@ -488,25 +840,25 @@
     <section class="features">
       <h2>Key Features of Our Partnership Deeds</h2>
       <div class="features-grid">
-        <div class="feature">
+        <div class="feature fade-in">
           <div class="feature-icon">✓</div>
           <h3>Clear Profit Sharing</h3>
           <p>Well-defined profit and loss distribution ratios</p>
         </div>
         
-        <div class="feature">
+        <div class="feature fade-in">
           <div class="feature-icon">✓</div>
           <h3>Roles & Responsibilities</h3>
           <p>Detailed description of each partner's duties and powers</p>
         </div>
         
-        <div class="feature">
+        <div class="feature fade-in">
           <div class="feature-icon">✓</div>
           <h3>Dispute Resolution</h3>
           <p>Mechanisms for resolving conflicts between partners</p>
         </div>
         
-        <div class="feature">
+        <div class="feature fade-in">
           <div class="feature-icon">✓</div>
           <h3>Exit Clauses</h3>
           <p>Clear procedures for partner retirement or admission</p>
@@ -518,31 +870,31 @@
     <section class="process">
       <h2>Our Simple Process</h2>
       <div class="process-steps">
-        <div class="process-step">
+        <div class="process-step fade-in">
           <div class="step-number">1</div>
           <h3>Initial Consultation</h3>
           <p>We understand your business needs and partnership structure.</p>
         </div>
         
-        <div class="process-step">
+        <div class="process-step fade-in">
           <div class="step-number">2</div>
           <h3>Document Collection</h3>
           <p>We collect necessary documents from all partners.</p>
         </div>
         
-        <div class="process-step">
+        <div class="process-step fade-in">
           <div class="step-number">3</div>
           <h3>Draft Preparation</h3>
           <p>Our legal experts prepare a customized partnership deed draft.</p>
         </div>
         
-        <div class="process-step">
+        <div class="process-step fade-in">
           <div class="step-number">4</div>
           <h3>Review & Finalization</h3>
           <p>All partners review the draft and suggest modifications.</p>
         </div>
         
-        <div class="process-step">
+        <div class="process-step fade-in">
           <div class="step-number">5</div>
           <h3>Execution & Registration</h3>
           <p>We assist with the signing and registration process.</p>
@@ -562,6 +914,17 @@
         <li>Business name reservation proof (if applicable)</li>
       </ul>
     </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="cta-content">
+        <h2>Ready to Create Your Partnership Deed?</h2>
+        <p>Contact us today for professional partnership deed services</p>
+        <a href="https://wa.me/918828048467" class="btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+        </a>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -570,8 +933,34 @@
       <p>© 2025 HALF CA Business Solutions | Partnership Deed Experts</p>
     </div>
   </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/918828048467" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Fade in animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const fadeInOnScroll = function() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+          }
+        });
+      };
+      
+      // Check on load
+      fadeInOnScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', fadeInOnScroll);
+    });
+  </script>
 </body>
-
 </html>
-
-
