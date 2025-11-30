@@ -13,12 +13,26 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --primary: #1a365d;
+      --secondary: #d69e2e;
+      --accent: #2d3748;
+      --light: #f5f7fa;
+      --dark: #1a202c;
+      --text: #2d3748;
+      --text-light: #718096;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --shadow-lg: 0 20px 50px rgba(0,0,0,0.15);
+      --transition: all 0.4s ease;
+    }
+
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background-color: #f9fafb;
-      padding-bottom: 2rem;
+      color: var(--text);
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      overflow-x: hidden;
     }
 
     .container {
@@ -27,12 +41,80 @@
       padding: 0 20px;
     }
 
+    /* Animated Background */
+    .floating-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.1;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      animation: float 20s infinite linear;
+    }
+
+    .shape:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      top: 60%;
+      left: 80%;
+      animation-delay: -5s;
+    }
+
+    .shape:nth-child(3) {
+      width: 60px;
+      height: 60px;
+      top: 80%;
+      left: 20%;
+      animation-delay: -10s;
+    }
+
+    .shape:nth-child(4) {
+      width: 100px;
+      height: 100px;
+      top: 30%;
+      left: 85%;
+      animation-delay: -15s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      33% {
+        transform: translateY(-30px) rotate(120deg);
+      }
+      66% {
+        transform: translateY(20px) rotate(240deg);
+      }
+    }
+
     /* Header */
     header {
-      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       color: white;
-      padding: 0.6rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 1.2rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
     }
 
     .header-content {
@@ -44,12 +126,15 @@
     .logo {
       display: flex;
       align-items: center;
+      transition: var(--transition);
     }
 
     .logo img.logo-img {
-      width: 50px;
-      height: auto;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
       margin-right: 10px;
+      transition: var(--transition);
     }
 
     .logo-text {
@@ -58,13 +143,17 @@
     }
 
     .logo-main {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 700;
+      background: linear-gradient(to right, #fff, var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .logo-sub {
       font-size: 0.85rem;
       opacity: 0.9;
+      font-style: italic;
     }
 
     .contact-info {
@@ -77,6 +166,11 @@
       align-items: center;
       gap: 0.5rem;
       font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .contact-item:hover {
+      color: var(--secondary);
     }
 
     /* Hero */
@@ -84,76 +178,123 @@
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
         url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       color: white;
-      padding: 2.5rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
     }
 
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease 0.3s both;
     }
 
     /* Intro */
     .intro {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 4rem;
       padding: 0 1rem;
     }
 
     .intro p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       max-width: 800px;
       margin: 0 auto;
+      line-height: 1.8;
+      color: var(--text-light);
     }
 
     /* Services Section */
     .services {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
 
     .section-title {
       text-align: center;
-      color: #2563eb;
-      margin-bottom: 2rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #e5e7eb;
-      font-size: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
       font-weight: 700;
+    }
+
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 5px;
+      background: var(--secondary);
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
     }
 
     .service-card {
       background: white;
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-15px);
+      box-shadow: var(--shadow-lg);
     }
 
     .service-card h3 {
-      color: #2563eb;
-      margin-bottom: 1rem;
-      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
       min-height: 3.5rem;
       display: flex;
       align-items: center;
@@ -161,77 +302,228 @@
     }
 
     .service-card p {
-      color: #4b5563;
-      font-size: 1rem;
-      margin-bottom: 1rem;
+      color: var(--text-light);
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
       flex-grow: 1;
+      line-height: 1.7;
     }
 
     /* Special Pricing Card */
     .pricing-card {
-      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
     }
 
     .pricing-card h3 {
       color: white;
+      position: relative;
+      z-index: 1;
     }
 
     .pricing-card p {
       color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 1;
     }
 
     .price-tag {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin: 1rem 0;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 1.5rem 0;
       background: rgba(255, 255, 255, 0.2);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+      padding: 1rem 2rem;
+      border-radius: 15px;
       display: inline-block;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: var(--transition);
+    }
+
+    .pricing-card:hover .price-tag {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.3);
     }
 
     /* Benefits */
     .benefits {
-      background: #dbeafe;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 3rem;
+      background: rgba(219, 234, 254, 0.8);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 4rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefits::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+      background-size: cover;
+      background-position: center;
     }
 
     .benefits h2 {
       text-align: center;
-      color: #2563eb;
-      margin-bottom: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      position: relative;
+      z-index: 1;
     }
 
     .benefits-list {
       list-style: none;
       max-width: 700px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .benefits-list li {
-      padding: 0.7rem 0;
-      padding-left: 2rem;
+      padding: 1rem 0;
+      padding-left: 3rem;
       position: relative;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .benefits-list li:hover {
+      transform: translateX(10px);
     }
 
     .benefits-list li::before {
       content: "✓";
       color: #059669;
       position: absolute;
-      left: 0;
+      left: 1rem;
       font-weight: bold;
+      font-size: 1.3rem;
+      background: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 1.5rem;
-      background: #1e293b;
+      padding: 2rem;
+      background: var(--accent);
       color: white;
-      margin-top: 2rem;
+      margin-top: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 70px;
+      height: 70px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      z-index: 100;
+      transition: var(--transition);
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Responsive */
@@ -239,6 +531,7 @@
       .header-content {
         flex-direction: column;
         text-align: center;
+        gap: 1rem;
       }
 
       .contact-info {
@@ -247,16 +540,41 @@
       }
 
       .hero h2 {
-        font-size: 1.7rem;
+        font-size: 2.2rem;
       }
       
       .service-card h3 {
         min-height: auto;
       }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+
+      .benefits {
+        padding: 2rem;
+      }
+
+      .benefits-list li {
+        padding-left: 2.5rem;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Animated Background -->
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
   <header>
     <div class="container header-content">
       <div class="logo">
@@ -287,34 +605,36 @@
     </section>
 
     <section class="services">
-      <h2 class="section-title">Our GST Services</h2>
+      <div class="section-title">
+        <h2>Our GST Services</h2>
+      </div>
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>1. Monthly & Quarterly GST Return Filing</h3>
           <p>We handle all types of GST return filings (GSTR-1, GSTR-3B, GSTR-4, GSTR-9, etc.) with accuracy and timely submission to avoid penalties.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>2. GST Registration & Cancellation</h3>
           <p>Assistance with new GST registration, amendment of existing registration, and cancellation process when needed.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>3. Input Tax Credit Reconciliation</h3>
           <p>We help you maximize your tax savings through proper ITC claims, documentation, and reconciliation of mismatches.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>4. GST Notice Handling</h3>
           <p>Professional assistance in responding to GST notices, assessments, and departmental communications.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card fade-in">
           <h3>5. Refund Processing</h3>
           <p>Help with filing and follow-up for GST refunds to ensure timely receipt of eligible refund amounts.</p>
         </div>
 
-        <div class="service-card pricing-card">
+        <div class="service-card pricing-card fade-in">
           <h3>6. Affordable Pricing</h3>
           <p>Our GST filing services start at</p>
           <div class="price-tag">₹700 Only</div>
@@ -341,5 +661,34 @@
       <p>© 2025 HALF CA Business Solutions | GST Filing Experts</p>
     </div>
   </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/918828048467" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Fade in animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const fadeInOnScroll = function() {
+        fadeElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+          }
+        });
+      };
+      
+      // Check on load
+      fadeInOnScroll();
+      
+      // Check on scroll
+      window.addEventListener('scroll', fadeInOnScroll);
+    });
+  </script>
 </body>
-</html>
+</html> 
