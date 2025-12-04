@@ -982,8 +982,23 @@
             <p style="color: rgba(255, 255, 255, 0.8);">Provide your details and we'll get in touch with you</p>
         </div>
         <div class="registration-container">
-            <!-- Formspree Form -->
-            <form class="registration-form" action="https://formspree.io/f/xvojzpyb" method="POST" id="customerForm">
+            <!-- Formsubmit.co Form -->
+            <form class="registration-form" action="https://formsubmit.co/abineshzak43@gmail.com" method="POST" id="customerForm">
+                <!-- Protect from spam -->
+                <input type="hidden" name="_captcha" value="false">
+                
+                <!-- Redirect after submit (optional - you can remove if you want to use local success message) -->
+                <!-- <input type="hidden" name="_next" value="https://yourwebsite.com/success.html"> -->
+                
+                <!-- Specify subject -->
+                <input type="hidden" name="_subject" value="New Registration - HALF CA Business Solutions">
+                
+                <!-- Add custom template -->
+                <input type="hidden" name="_template" value="table">
+                
+                <!-- Optional: Add CC email -->
+                <!-- <input type="hidden" name="_cc" value="another@email.com"> -->
+                
                 <div class="form-group">
                     <label for="name">Full Name *</label>
                     <input type="text" id="name" name="name" required placeholder="Enter your full name">
@@ -1076,7 +1091,7 @@
     </a>
 
     <script>
-        // Form submission handling for Formspree
+        // Form submission handling for Formsubmit.co
         document.getElementById('customerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
