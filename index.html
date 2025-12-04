@@ -976,62 +976,63 @@
     </section>
 
     <!-- Registration Section -->
-    <section class="registration" id="registration">
-        <div class="section-title">
-            <h2 style="color: white;">Register With Us</h2>
-            <p style="color: rgba(255, 255, 255, 0.8);">Provide your details and we'll get in touch with you</p>
-        </div>
-        <div class="registration-container">
-            <!-- Formspree Form -->
-            <form class="registration-form" action="https://formspree.io/f/xvojzpyb" method="POST" id="customerForm">
-                <!-- Redirect back to this page after success -->
-                <input type="hidden" name="_next" value="#success">
-                
-                <!-- Custom subject for email -->
-                <input type="hidden" name="_subject" value="New Customer Registration - HALF CA Business Solutions">
-                
-                <!-- Disable captcha for better UX -->
-                <input type="hidden" name="_captcha" value="false">
-                
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                </div>
-                <div class="form-group">
-                    <label for="service">Service Interested In</label>
-                    <select id="service" name="service">
-                        <option value="">Select a service</option>
-                        <option value="GST Filing">GST Filing</option>
-                        <option value="ITR Filing">ITR Filing</option>
-                        <option value="Rental Agreements">Rental Agreements</option>
-                        <option value="Partnership Deeds">Partnership Deeds</option>
-                        <option value="Legal Formats">Legal Formats</option>
-                        <option value="ID Download">ID Download</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message (Optional)</label>
-                    <textarea id="message" name="message" placeholder="Any specific requirements or questions..." rows="3"></textarea>
-                </div>
-                <button type="submit" class="submit-btn" id="submitBtn">Submit Registration</button>
-            </form>
-            <!-- Success Message -->
-            <div class="form-success" id="successMessage">
-                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                <h3>Thank You!</h3>
-                <p>Your registration has been received successfully. We will contact you shortly.</p>
+    <!-- Registration Section -->
+<section class="registration" id="registration">
+    <div class="section-title">
+        <h2 style="color: white;">Register With Us</h2>
+        <p style="color: rgba(255, 255, 255, 0.8);">Provide your details and we'll get in touch with you</p>
+    </div>
+    <div class="registration-container">
+        <!-- Formspree Form - USING YOUR ACTUAL ENDPOINT -->
+        <form class="registration-form" action="https://formspree.io/f/meggjngq" method="POST" id="customerForm">
+            <!-- Redirect back to this page after success -->
+            <input type="hidden" name="_next" value="https://yourwebsite.com#success">
+            
+            <!-- Custom subject for email -->
+            <input type="hidden" name="_subject" value="New Customer Registration - HALF CA Business Solutions">
+            
+            <!-- Disable captcha for better UX -->
+            <input type="hidden" name="_captcha" value="false">
+            
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
             </div>
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            </div>
+            <div class="form-group">
+                <label for="service">Service Interested In</label>
+                <select id="service" name="service">
+                    <option value="">Select a service</option>
+                    <option value="GST Filing">GST Filing</option>
+                    <option value="ITR Filing">ITR Filing</option>
+                    <option value="Rental Agreements">Rental Agreements</option>
+                    <option value="Partnership Deeds">Partnership Deeds</option>
+                    <option value="Legal Formats">Legal Formats</option>
+                    <option value="ID Download">ID Download</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message (Optional)</label>
+                <textarea id="message" name="message" placeholder="Any specific requirements or questions..." rows="3"></textarea>
+            </div>
+            <button type="submit" class="submit-btn" id="submitBtn">Submit Registration</button>
+        </form>
+        <!-- Success Message -->
+        <div class="form-success" id="successMessage">
+            <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <h3>Thank You!</h3>
+            <p>Your registration has been received successfully. We will contact you shortly.</p>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1084,96 +1085,86 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        // Form submission handling for Formspree
-        document.getElementById('customerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = this;
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
-            submitBtn.disabled = true;
-            
-            // Create form data
-            const formData = new FormData(form);
-            
-            // Send to Formspree
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Show success message
-                    document.getElementById('successMessage').classList.add('show');
-                    form.reset();
-                    
-                    // Hide form
-                    form.style.display = 'none';
-                    
-                    // Scroll to success message
-                    document.getElementById('successMessage').scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
-                    });
-                } else {
-                    // Even if there's an error, show success to user
-                    document.getElementById('successMessage').classList.add('show');
-                    form.style.display = 'none';
-                    form.reset();
-                }
-            })
-            .catch(error => {
-                // Show success message even on network error
+  <script>
+    // Form submission handling for Formspree
+    document.getElementById('customerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const form = this;
+        const submitBtn = document.getElementById('submitBtn');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+        submitBtn.disabled = true;
+        
+        // Create form data
+        const formData = new FormData(form);
+        
+        // Send to Formspree
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Show success message
+                document.getElementById('successMessage').classList.add('show');
+                form.reset();
+                
+                // Hide form
+                form.style.display = 'none';
+                
+                // Scroll to success message
+                document.getElementById('successMessage').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            } else {
+                // Even if there's an error, show success to user
                 document.getElementById('successMessage').classList.add('show');
                 form.style.display = 'none';
                 form.reset();
-            })
-            .finally(() => {
-                // Reset button state
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            });
-        });
-
-        // Fade in animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
-            
-            // Check on load
-            fadeInOnScroll();
-            
-            // Check on scroll
-            window.addEventListener('scroll', fadeInOnScroll);
-            
-            // Check if redirected back from form submission
-            if (window.location.hash === '#success') {
-                const successMsg = document.getElementById('successMessage');
-                const form = document.getElementById('customerForm');
-                if (successMsg && form) {
-                    successMsg.classList.add('show');
-                    form.style.display = 'none';
-                    successMsg.scrollIntoView({ behavior: 'smooth' });
-                }
             }
+        })
+        .catch(error => {
+            // Show success message even on network error
+            document.getElementById('successMessage').classList.add('show');
+            form.style.display = 'none';
+            form.reset();
+        })
+        .finally(() => {
+            // Reset button state
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
         });
-    </script>
+    });
+
+    // Fade in animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Check on load
+        fadeInOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+    });
+</script>
 </body>
 </html>
+
